@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>顾佳静 Jiajing Gu｜翻译・口译・本地化・英语教学・配音</title>
+  <style>
+    :root{
+      --bg:#0f172a;
+      --card:#111827;
+      --card2:#172033;
+      --text:#f8fafc;
+      --muted:#cbd5e1;
+      --accent:#7dd3fc;
+      --accent2:#a7f3d0;
+      --gold:#fef3c7;
+      --line:rgba(255,255,255,.12);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(125,211,252,.18), transparent 30%),
+        radial-gradient(circle at 80% 20%, rgba(167,243,208,.13), transparent 30%),
+        linear-gradient(135deg,#020617,#0f172a 55%,#111827);
+      color:var(--text);
+      line-height:1.7;
+    }
+    a{color:inherit;text-decoration:none}
+    .nav{
+      position:sticky;top:0;z-index:10;
+      backdrop-filter: blur(16px);
+      background:rgba(2,6,23,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      max-width:1120px;margin:auto;padding:14px 22px;
+      display:flex;justify-content:space-between;gap:20px;align-items:center;
+    }
+    .brand{font-weight:800;letter-spacing:.3px}
+    .brand span{color:var(--accent)}
+    .links{display:flex;gap:18px;font-size:14px;color:var(--muted)}
+    .links a:hover{color:var(--accent)}
+    .hero{
+      max-width:1120px;margin:auto;padding:76px 22px 48px;
+      display:grid;grid-template-columns:1.18fr .82fr;gap:34px;align-items:center;
+    }
+    .badge{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:7px 12px;border:1px solid var(--line);border-radius:999px;
+      color:var(--accent2);background:rgba(255,255,255,.04);font-size:14px;
+    }
+    h1{font-size:46px;line-height:1.12;margin:20px 0 16px;letter-spacing:-1px}
+    h1 small{display:block;font-size:22px;color:var(--muted);font-weight:500;margin-top:10px}
+    .lead{font-size:18px;color:var(--muted);max-width:720px}
+    .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+    .btn{
+      border:none;cursor:pointer;border-radius:14px;padding:13px 18px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#032033;font-weight:800;font-size:15px;
+      box-shadow:0 12px 30px rgba(125,211,252,.16);
+    }
+    .btn.secondary{background:rgba(255,255,255,.06);color:var(--text);border:1px solid var(--line);box-shadow:none}
+    .profile-card{
+      background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035));
+      border:1px solid var(--line);border-radius:26px;padding:26px;
+      box-shadow:0 25px 70px rgba(0,0,0,.28);
+    }
+    .profile-name{font-size:28px;font-weight:800;margin:0 0 4px}
+    .profile-title{color:var(--accent);font-weight:700;margin-bottom:16px}
+    .quick{display:grid;gap:10px;color:var(--muted);font-size:15px}
+    .quick b{color:var(--text)}
+    section{max-width:1120px;margin:auto;padding:44px 22px}
+    .section-title{font-size:30px;margin:0 0 12px}
+    .section-sub{color:var(--muted);margin:0 0 24px;max-width:760px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .card{
+      background:rgba(255,255,255,.055);
+      border:1px solid var(--line);border-radius:22px;padding:22px;
+      transition:transform .15s, background .15s;
+    }
+    .card:hover{transform:translateY(-3px);background:rgba(255,255,255,.08)}
+    .card h3{margin:0 0 10px;font-size:21px}
+    .card p,.card li{color:var(--muted)}
+    .card ul{padding-left:20px;margin:12px 0 0}
+    .tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+    .tag{font-size:12px;padding:5px 9px;border-radius:999px;background:rgba(125,211,252,.12);color:#dff6ff;border:1px solid rgba(125,211,252,.18)}
+    .case-card{cursor:pointer}
+    .case-card .open{color:var(--accent2);font-weight:700;margin-top:12px}
+    .timeline{display:grid;gap:14px}
+    .item{display:grid;grid-template-columns:160px 1fr;gap:18px;padding:18px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.045)}
+    .date{color:var(--accent);font-weight:800}
+    .item h3{margin:0 0 6px}
+    .contact{
+      background:linear-gradient(135deg,rgba(125,211,252,.12),rgba(167,243,208,.1));
+      border:1px solid var(--line);border-radius:26px;padding:28px;
+      display:flex;justify-content:space-between;gap:24px;align-items:center;flex-wrap:wrap;
+    }
+    footer{max-width:1120px;margin:auto;padding:28px 22px 48px;color:var(--muted);font-size:14px}
+    .modal{
+      display:none;position:fixed;inset:0;z-index:20;background:rgba(2,6,23,.72);
+      padding:24px;align-items:center;justify-content:center;
+    }
+    .modal.open{display:flex}
+    .modal-box{
+      max-width:760px;max-height:86vh;overflow:auto;
+      background:#0f172a;border:1px solid var(--line);border-radius:24px;padding:26px;
+      box-shadow:0 25px 90px rgba(0,0,0,.45);
+    }
+    .modal h2{margin-top:0}
+    .modal p,.modal li{color:var(--muted)}
+    .close{float:right;background:rgba(255,255,255,.08);border:1px solid var(--line);color:white;border-radius:10px;padding:8px 10px;cursor:pointer}
+    @media(max-width:860px){
+      .hero{grid-template-columns:1fr;padding-top:48px}
+      h1{font-size:36px}
+      .grid,.grid2{grid-template-columns:1fr}
+      .item{grid-template-columns:1fr}
+      .links{display:none}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">Jiajing Gu <span>顾佳静</span></div>
+      <div class="links">
+        <a href="#services">服务</a>
+        <a href="#cases">案例</a>
+        <a href="#experience">经历</a>
+        <a href="#skills">能力</a>
+        <a href="#contact">联系</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="badge">CN ↔ EN｜Translation · Interpreting · Localization · Voice</div>
+        <h1>让信息跨越语言，也跨越语境。<small>Translation is not only about words. It is about meaning, people, and experience.</small></h1>
+        <p class="lead">
+          我是顾佳静，北京外国语大学英语口译硕士，提供中英翻译、商务口译、影视/游戏本地化、英语教学与英文配音服务。
+          我擅长把复杂信息转化为不同受众能够自然理解、愿意进入的表达。
+        </p>
+        <div class="cta">
+          <a class="btn" href="#contact">预约合作 / Contact Me</a>
+          <a class="btn secondary" href="#cases">查看案例 / View Cases</a>
+        </div>
+      </div>
+      <aside class="profile-card">
+        <p class="profile-name">顾佳静 Jiajing Gu</p>
+        <div class="profile-title">Translator · Interpreter · Localization Specialist · Content Writer</div>
+        <div class="quick">
+          <div><b>学历：</b>北京外国语大学 英语口译硕士</div>
+          <div><b>方向：</b>影视/游戏本地化、商务口译、内容编辑、英语教学、配音</div>
+          <div><b>语言：</b>中文 / English</div>
+          <div><b>城市：</b>上海及线上远程</div>
+          <div><b>邮箱：</b>1363613843@qq.com</div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="services">
+      <h2 class="section-title">服务范围</h2>
+      <p class="section-sub">面向企业、机构、学校、内容团队与个人客户，提供语言、内容与跨文化沟通支持。</p>
+      <div class="grid">
+        <div class="card">
+          <h3>商务口译</h3>
+          <p>支持会议、展会、商务洽谈、教育交流、陪同口译等场景。</p>
+          <ul>
+            <li>交替传译 / 耳语同传</li>
+            <li>国际会议与高层交流</li>
+            <li>展会接待与客户沟通</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>影视/游戏本地化</h3>
+          <p>不仅翻译文字，也处理角色语气、世界观、文化负载词与目标用户体验。</p>
+          <ul>
+            <li>字幕翻译</li>
+            <li>剧情与角色对白本地化</li>
+            <li>术语统一与文化适配</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>内容编辑与文案</h3>
+          <p>适用于公众号、官网、品牌介绍、课程文案、内容运营与国际化传播。</p>
+          <ul>
+            <li>中英文内容撰写</li>
+            <li>文案润色与改写</li>
+            <li>受众导向表达优化</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>英语教学 / 反英语教学</h3>
+          <p>不只教语法和单词，更训练表达、听说、翻译思维与真实语境使用。</p>
+          <ul>
+            <li>中高级英语表达</li>
+            <li>面试英语 / 口语表达</li>
+            <li>翻译与写作训练</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>英文配音</h3>
+          <p>适用于宣传片、课程、短视频、企业介绍、英文朗读与角色声音表达。</p>
+          <ul>
+            <li>英文旁白</li>
+            <li>中英双语录音</li>
+            <li>语气与角色表达</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>跨文化沟通顾问</h3>
+          <p>帮助团队理解不同文化背景下的表达差异、沟通预期与内容风险。</p>
+          <ul>
+            <li>国际沟通支持</li>
+            <li>内容风格指南</li>
+            <li>本地化策略建议</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="cases">
+      <h2 class="section-title">精选案例</h2>
+      <p class="section-sub">点击卡片查看具体案例。这里展示的不是“我翻过什么”，而是“我如何处理语言背后的语境、角色、受众与项目目标”。</p>
+      <div class="grid2">
+        <div class="card case-card" onclick="openCase('case1')">
+          <h3>《大宋少年志Ⅰ》影视本地化</h3>
+          <p>8集剧本及台词英译，处理古代称谓、历史概念、角色语气与叙事节奏。</p>
+          <div class="tagrow"><span class="tag">Narrative Localization</span><span class="tag">Cultural Adaptation</span><span class="tag">Subtitle Translation</span></div>
+          <div class="open">查看详情 →</div>
+        </div>
+        <div class="card case-card" onclick="openCase('case2')">
+          <h3>商务部国际官员培训项目</h3>
+          <p>为12国商务官员提供陪同口译，覆盖课堂、考察、出行与日常沟通。</p>
+          <div class="tagrow"><span class="tag">Escort Interpreting</span><span class="tag">Cross-cultural Communication</span></div>
+          <div class="open">查看详情 →</div>
+        </div>
+        <div class="card case-card" onclick="openCase('case3')">
+          <h3>国际商务会议与高层交流</h3>
+          <p>提供耳语同传、交替传译及商务文件翻译，支持国际合作沟通。</p>
+          <div class="tagrow"><span class="tag">Business Interpreting</span><span class="tag">Executive Meetings</span></div>
+          <div class="open">查看详情 →</div>
+        </div>
+        <div class="card case-card" onclick="openCase('case4')">
+          <h3>传统文化图书编辑</h3>
+          <p>参与4册、25万字以上传统文化内容编辑，面向青少年优化叙事表达。</p>
+          <div class="tagrow"><span class="tag">Editorial Writing</span><span class="tag">Storytelling</span><span class="tag">Research</span></div>
+          <div class="open">查看详情 →</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2 class="section-title">经历脉络</h2>
+      <p class="section-sub">我的工作主线始终围绕同一件事：理解信息、理解人，再用合适的语言让不同背景的人真正理解彼此。</p>
+      <div class="timeline">
+        <div class="item">
+          <div class="date">2024–2025</div>
+          <div><h3>影视本地化</h3><p>独立完成《大宋少年志Ⅰ》8集台词英译，训练文化适配、角色语言与叙事本地化能力。</p></div>
+        </div>
+        <div class="item">
+          <div class="date">2024–2025</div>
+          <div><h3>国际项目与商务口译</h3><p>服务商务部国际项目、教育交流、展会与企业会议，处理多口音、多行业、多方沟通场景。</p></div>
+        </div>
+        <div class="item">
+          <div class="date">2017–2021</div>
+          <div><h3>翻译与内容编辑</h3><p>翻译商务、技术、市场、学术、文学文本；参与传统文化图书与双语内容运营。</p></div>
+        </div>
+        <div class="item">
+          <div class="date">2014–2016</div>
+          <div><h3>新闻写作与人物专访</h3><p>在校媒发表20余篇专题报道及人物专访，形成采访、叙事组织与受众导向表达能力。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">核心能力</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Localization</h3>
+          <ul>
+            <li>CN ↔ EN 本地化</li>
+            <li>影视 / 游戏文本翻译</li>
+            <li>字幕翻译</li>
+            <li>叙事本地化</li>
+            <li>跨文化适配</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Content Creation</h3>
+          <ul>
+            <li>创意写作</li>
+            <li>内容编辑</li>
+            <li>人物专访 / 专题写作</li>
+            <li>文案撰写与优化</li>
+            <li>内容策划</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Language</h3>
+          <ul>
+            <li>英语专业八级</li>
+            <li>CATTI 英语二级口笔译</li>
+            <li>同声传译</li>
+            <li>交替传译</li>
+            <li>跨文化沟通</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact">
+        <div>
+          <h2 class="section-title" style="margin-bottom:6px">合作联系</h2>
+          <p class="section-sub" style="margin-bottom:0">可承接上海本地及线上远程项目：口译、翻译、本地化、英语教学、配音、内容编辑。</p>
+        </div>
+        <a class="btn" href="mailto:1363613843@qq.com">发送邮件</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Jiajing Gu. Translation · Interpreting · Localization · Content Creation.
+  </footer>
+
+  <div id="case1" class="modal">
+    <div class="modal-box">
+      <button class="close" onclick="closeCase('case1')">关闭</button>
+      <h2>《大宋少年志Ⅰ》影视本地化</h2>
+      <p><b>项目内容：</b>独立完成8集剧本及台词英译。</p>
+      <p><b>挑战：</b>古装剧含大量历史文化、政治制度、人物关系与原创称谓，很多概念无法直接对译。</p>
+      <p><b>处理方法：</b>不机械直译，而是先分析词语在剧情中的功能、角色关系与观众感知，再选择功能对等和叙事本地化策略。</p>
+      <p><b>代表案例：</b>“掌院”并非真实历史官职，而是兼具学院管理者、导师、权威长辈等功能的原创称谓。因此处理时需兼顾世界观设定、角色身份和英语观众自然理解。</p>
+      <p><b>能力体现：</b>Narrative Localization / Character Voice / Cultural Adaptation / Audience Experience。</p>
+    </div>
+  </div>
+
+  <div id="case2" class="modal">
+    <div class="modal-box">
+      <button class="close" onclick="closeCase('case2')">关闭</button>
+      <h2>商务部国际官员培训项目</h2>
+      <p><b>项目内容：</b>为来自12个国家的商务官员提供陪同口译与项目支持。</p>
+      <p><b>场景：</b>课堂培训、实地考察、文化参访、日常生活沟通。</p>
+      <p><b>挑战：</b>参与者来自不同文化背景，英语口音、沟通习惯和表达方式差异较大。</p>
+      <p><b>能力体现：</b>快速理解需求、主动观察、跨文化沟通、项目现场支持、突发问题处理。</p>
+    </div>
+  </div>
+
+  <div id="case3" class="modal">
+    <div class="modal-box">
+      <button class="close" onclick="closeCase('case3')">关闭</button>
+      <h2>国际商务会议与高层交流</h2>
+      <p><b>项目内容：</b>参与国际商务会议、高层交流、商务谈判及文件翻译。</p>
+      <p><b>服务形式：</b>耳语同传、交替传译、商务文件中英翻译。</p>
+      <p><b>核心能力：</b>在高压场景下识别发言意图、提炼关键信息，并保持专业、准确、得体的表达。</p>
+      <p><b>职业理念：</b>口译不是简单复述语言，而是在不同目标、背景与利益诉求之间建立可理解的沟通通道。</p>
+    </div>
+  </div>
+
+  <div id="case4" class="modal">
+    <div class="modal-box">
+      <button class="close" onclick="closeCase('case4')">关闭</button>
+      <h2>中国传统文化图书编辑</h2>
+      <p><b>项目内容：</b>参与4册中国传统文化图书编辑与创作，累计25万字以上。</p>
+      <p><b>内容方向：</b>历史、民俗、建筑、地理等主题。</p>
+      <p><b>受众：</b>青少年读者。</p>
+      <p><b>处理方式：</b>在保证知识准确的基础上，通过叙事设计、场景感和语言节奏提升可读性。</p>
+      <p><b>能力体现：</b>资料研究、内容重构、受众意识、故事化表达。</p>
+    </div>
+  </div>
+
+  <script>
+    function openCase(id){ document.getElementById(id).classList.add('open'); }
+    function closeCase(id){ document.getElementById(id).classList.remove('open'); }
+    document.addEventListener('keydown', e => {
+      if(e.key === 'Escape'){
+        document.querySelectorAll('.modal').forEach(m => m.classList.remove('open'));
+      }
+    });
+    document.querySelectorAll('.modal').forEach(m => {
+      m.addEventListener('click', e => {
+        if(e.target === m) m.classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>
